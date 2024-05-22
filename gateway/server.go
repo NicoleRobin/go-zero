@@ -37,6 +37,9 @@ func MustNewServer(c GatewayConf, opts ...Option) *Server {
 		upstreams: c.Upstreams,
 		Server:    rest.MustNewServer(c.RestConf),
 	}
+	if true {
+		opts = append(opts, rest.WithCors(c.Cors.AllowOrigin...))
+	}
 	for _, opt := range opts {
 		opt(svr)
 	}

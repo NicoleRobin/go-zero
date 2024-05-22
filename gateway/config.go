@@ -9,6 +9,7 @@ type (
 	// GatewayConf is the configuration for gateway.
 	GatewayConf struct {
 		rest.RestConf
+		Cors      CorsConf
 		Upstreams []Upstream
 	}
 
@@ -35,5 +36,15 @@ type (
 		// Mappings is the mapping between gateway routes and Upstream rpc methods.
 		// Keep it blank if annotations are added in rpc methods.
 		Mappings []RouteMapping `json:",optional"`
+	}
+
+	// CorsConf is a cors config.
+	CorsConf struct {
+		AllowMethods    []string `json:""`
+		AllowHeaders    []string `json:""`
+		ExposeHeaders   []string `json:""`
+		AllowCredential bool     `json:""`
+		MaxAge          int      `json:""`
+		AllowOrigin     []string `json:""`
 	}
 )

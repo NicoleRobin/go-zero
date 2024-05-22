@@ -24,6 +24,17 @@ func main() {
 Name: demo-gateway
 Host: localhost
 Port: 8888
+Cors:
+  AllowMethods:
+    - GET
+    - POST
+  AllowHeaders:
+    - 
+  ExposeHeaders:
+  AllowCredential: false
+  MaxAge: false
+  AllowOrigin:
+    - *
 Upstreams:
   - Grpc:
       Etcd:
